@@ -5,5 +5,5 @@ export default async function GET() {
   return new NextResponse(await register.metrics(), {
     status: 200,
     headers: { "Content-Type": "application/json" },
-  });
+  }).json();
 }
