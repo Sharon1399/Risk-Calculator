@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
-import register from  "../../lib/metrics";
+import type { NextResponse } from "next/server";
+import register from "../../lib/metrics";
 
 export default async function GET() {
-  return new NextResponse(await register.metrics(), {
+  return new Response(await register.metrics(), {
     status: 200,
-    headers: { "Content-Type": "application/json" },
-  }).json();
+    headers: { "Content-Type": register.contentType },
+  });
 }
